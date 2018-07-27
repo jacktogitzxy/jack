@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    >
+    <TextView android:id="@+id/point_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="left"
+        android:lines="1"
+        android:text="@null"
+        android:textSize="15sp"
+        android:visibility="invisible"
+        />
+    <TextView android:id="@+id/point_dangername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ficon"
+        android:lines="1"
+        android:background="@drawable/search_layout_bg"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_gravity="left"
+        android:textSize="15sp" android:text="@null"
+        android:visibility="invisible"
+        />
+    <FrameLayout
+        android:id="@+id/ficon"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       >
+    <ImageView android:layout_width="wrap_content"
+        android:id="@+id/point_icon"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_gcoding"
+        android:layout_gravity="center"/>
+        <TextView android:id="@+id/point_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_343333"
+            android:layout_gravity="center"
+            android:lines="1"
+            android:textStyle="bold"
+            android:textSize="12sp" />
+    </FrameLayout>
+
+</RelativeLayout>

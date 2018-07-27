@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_drawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="80dip"
+        android:background="#D000"
+        android:minWidth="100dip"
+        android:orientation="vertical"
+        android:padding="2dp" >
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/radioGroup_text" >
+
+            <RadioButton
+                android:id="@+id/defaulticon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:padding="@dimen/dp_10"
+                android:textSize="@dimen/text_size_normal"
+                android:layout_gravity="center"
+                android:textColor="@color/top_bar_normal_bg"
+                android:text="@string/nomal_map" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/customicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/top_bar_normal_bg"
+                android:padding="@dimen/dp_10"
+                android:textSize="@dimen/text_size_normal"
+                android:layout_gravity="center"
+                android:text="@string/other_map" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/luopanicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/top_bar_normal_bg"
+                android:padding="@dimen/dp_10"
+                android:textSize="@dimen/text_size_normal"
+                android:layout_gravity="center"
+                android:text="@string/other_map" >
+            </RadioButton>
+        </RadioGroup>
+    </LinearLayout>
+
+</RelativeLayout>

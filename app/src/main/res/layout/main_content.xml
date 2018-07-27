@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_343333"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/color_343333">
+
+            <ImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:src="@mipmap/menu_icon" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/title"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/topmenu_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_alignParentRight="true"
+                android:onClick="showPopFormTop"
+                android:src="@mipmap/wechat1" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title_layout"
+        android:clickable="true" />
+    <!--菜单选项-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="80dip"
+        android:background="#D000"
+        android:minWidth="100dip"
+        android:orientation="vertical"
+        android:padding="2dp" >
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/radioGroup_text" >
+
+            <RadioButton
+                android:id="@+id/defaulticon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:padding="@dimen/dp_10"
+                android:textSize="@dimen/text_size_normal"
+                android:layout_gravity="center"
+                android:textColor="@color/top_bar_normal_bg"
+                android:text="@string/nomal_map" >
+            </RadioButton>
+
+            <RadioButton
+            android:id="@+id/customicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/top_bar_normal_bg"
+            android:padding="@dimen/dp_10"
+            android:textSize="@dimen/text_size_normal"
+            android:layout_gravity="center"
+            android:text="@string/other_map" >
+        </RadioButton>
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title_layout"
+        android:clickable="true"
+        android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/current_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="5dp"
+            android:text="@string/title"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/splash_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/splash"
+        android:scaleType="fitXY"
+        />
+</RelativeLayout>

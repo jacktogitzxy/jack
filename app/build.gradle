@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+repositories {
+    flatDir {
+        dir 'libs'
+    }
+}
+android {
+//    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion "27.0.1"
+    signingConfigs {
+        // your debug keystore
+
+        debug {
+            keyAlias 'zxy'
+            keyPassword 'zxy5520'
+            storeFile file('zxy.jks')
+            storePassword 'zxy5520'
+        }
+        release {
+            keyAlias 'zxy'
+            keyPassword 'zxy5520'
+            storeFile file('zxy.jks')
+            storePassword 'zxy5520'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+//    defaultConfig {
+//        applicationId "com.zig.slope"
+//        minSdkVersion 16
+//        targetSdkVersion 26
+//        versionCode 1
+//        versionName "1.0"
+//        vectorDrawables.useSupportLibrary = true
+//    }
+
+    defaultConfig {
+        applicationId "com.zig.slope"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //ARouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //    implementation 'com.android.support:appcompat-v7:26.1.0'
+    //    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation rootProject.ext.dependencies.multidex
+    //    testImplementation 'junit:junit:4.12'
+    //    androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.2', {
+    //        exclude group: 'com.android.support', module: 'support-annotations'
+    //    })
+    //    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    annotationProcessor rootProject.ext.dependencies.arouter_compiler
+    compile 'com.jakewharton:butterknife:8.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.1.0'
+    compile 'com.android.support:cardview-v7:22.2.1'
+    //banner
+    implementation 'cn.bingoogolapple:bga-banner:2.1.8@aar'
+
+    compile 'org.xutils:xutils:3+'
+    compile('com.github.huburt-Hu:NewbieGuide:v2.0.0') {
+        exclude group: 'com.android.support'
+    }
+    implementation project(':common_module')
+    if (!isModule.toBoolean()) {
+        implementation project(':login_module')
+//        implementation project(':map_module')
+    }
+//    implementation files('libs/BaiduLBS_Android.jar')
+}
